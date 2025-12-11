@@ -1,0 +1,220 @@
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}AUKA Terapias - Productos Naturales y Terapias{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> <!-- Para el Wasa -->
+
+   
+    <!-- Preconnect para Google Fonts y fuente Quicksand -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Playfair Display for headings -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lexend Exa for navbar -->
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Referencia CSSs -->
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+
+    <style>
+        html, body {
+            font-family: 'Quicksand', 'Poppins', Arial, Helvetica, sans-serif;
+            font-weight: 400;
+        }
+        h1, h2, h3, h4, h5, h6 { 
+            font-family: 'Playfair Display', serif;
+            font-weight: 600; 
+        }
+    </style>
+
+    <link href="{% static 'css/index.css' %}" rel="stylesheet">
+    <link href="{% static 'css/productos.css' %}" rel="stylesheet">
+
+    <!-- AQUI VA TU NUEVO CSS -->
+    <link href="{% static 'css/servicios.css' %}" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'photos/iconpestañaweb.png' %}" type="image/png">
+</head>
+
+<body>
+
+<!-- Navbar -->
+{% with navbar_bg_url='/static/photos/Navbar_auka.jpg' %}
+<nav class="navbar-modern" 
+     style="background: url('{{ navbar_bg_url }}') no-repeat center center; background-size: cover;">
+
+    <!-- Canvas para partículas -->
+    <canvas id="particles-canvas"></canvas>
+
+    <div class="nav-container">
+
+      <!-- MOBILE NAV (oculto en escritorio) -->
+<div class="nav-mobile">
+    <!-- Botón hamburguesa -->
+    <div class="mobile-toggle" id="mobileToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    
+</div>
+
+<!-- MENÚ DESPLEGABLE MÓVIL (FALTABA) -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="{% url 'core:home' %}" class="mobile-link">Inicio</a>
+    <a href="{% url 'core:productos' %}" class="mobile-link">Productos</a>
+    <a href="{% url 'core:servicios' %}" class="mobile-link">Servicios</a>
+    <a href="{% url 'core:about' %}" class="mobile-link">Sobre AUKA</a>
+    <a href="{% url 'core:blog' %}" class="mobile-link">Blog y Eventos</a>
+    <a href="{% url 'core:contacto' %}" class="mobile-link">Contacto</a>
+</div>
+
+<!-- NAV ESCRITORIO (logo único, se muestra según CSS) -->
+<div class="nav-logo">
+    <a href="{% url 'core:home' %}">
+        <img src="{% static 'photos/AUKA.png' %}" alt="AUKA Terapias">
+    </a>
+</div>
+
+
+        <!-- navbar principal centrada -->
+        <div class="nav-menu">
+            <div class="nav-links">
+                <a href="{% url 'core:home' %}" class="nav-link">Inicio</a>
+                <a href="{% url 'core:productos' %}" class="nav-link">Productos</a>
+                <a href="{% url 'core:servicios' %}" class="nav-link">Servicios</a>
+                <a href="{% url 'core:about' %}" class="nav-link">Sobre AUKA</a>
+                <a href="{% url 'core:blog' %}" class="nav-link">Blog y Eventos</a>
+                <a href="{% url 'core:contacto' %}" class="nav-link">Contacto</a>
+                <a href="{% url 'core:cart_detail' %}" class="nav-link"> <!-- Kevin: logo carrito-->
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+    {% endwith %}
+
+    <!-- Contenido principal -->
+    <main class="min-vh-100">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+
+<!-- Footer -->
+<footer class="bg-dark text-white py-4">
+    <div class="container">
+        <div class="row gy-4 align-items-start">  <!-- align-items-start = todo alineado arriba -->
+
+            <!-- Columna AUKA Terapias + icono floral debajo del texto (sin afectar el flujo) -->
+            <div class="col-12 col-md-6 col-lg-4 position-relative">
+                <h5 class="fw-bold mb-3">AUKA Terapías</h5>
+                <p class="mb-4">Productos naturales y terapias complementarias en Concepción, Chile.</p>
+
+                <!-- Icono floral justo debajo del texto, pero sacado del flujo para no empujar nada -->
+                <a href="http://127.0.0.1:8000/superpanel/login/?next=/superpanel/" 
+                   title="Panel de Administración" 
+                   target="_blank"
+                   class="position-absolute start-0"
+                   style="bottom: -40px; z-index: 10;">
+                    <img src="{% static 'photos/iconaukafloral.png' %}" 
+                         alt="Admin"
+                         class="img-fluid"
+                         style="width: 90px; opacity: 0.5; transition: all .3s ease;"
+                         onmouseover="this.style.opacity=1; this.style.transform='scale(1.1)'"
+                         onmouseout="this.style.opacity=0.5; this.style.transform='scale(1)'">
+                </a>
+            </div>
+
+            <!-- Columna Contacto (perfectamente alineada arriba) -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <h5 class="fw-bold mb-3">Contacto</h5>
+                <p class="mb-2 small">
+                    <i class="fas fa-phone me-2"></i> +56 9 1234 5678
+                </p>
+                <p class="mb-0 small">
+                    <i class="fas fa-envelope me-2"></i> contacto@aukaterapias.cl
+                </p>
+            </div>
+
+            <!-- Columna Síguenos (perfectamente alineada arriba) -->
+            <div class="col-12 col-md-12 col-lg-4">
+                <h5 class="fw-bold mb-3">Síguenos</h5>
+                <div class="social-links d-flex gap-3">
+                    <a href="https://www.facebook.com/terapiasnaturalesCL" 
+                       class="text-white fs-4" target="_blank" rel="noopener">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://www.instagram.com/auka_terapias/" 
+                       class="text-white fs-4" target="_blank" rel="noopener">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <p class="mb-0 small text-white-50">&copy; 2025 AUKA Terapias. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- JavaScript para el menú móvil -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileToggle = document.getElementById('mobileToggle');
+            const mobileMenu = document.getElementById('mobileMenu') || document.querySelector('.mobile-menu');
+
+            if (!mobileToggle) {
+                console.warn('mobileToggle no encontrado en el DOM');
+                return;
+            }
+            if (!mobileMenu) {
+                console.warn('mobileMenu no encontrado en el DOM');
+            }
+
+            mobileToggle.addEventListener('click', function() {
+                mobileToggle.classList.toggle('active');
+                if (mobileMenu) mobileMenu.classList.toggle('active');
+            });
+
+            // Cerrar menú al hacer clic en un enlace
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileToggle.classList.remove('active');
+                    if (mobileMenu) mobileMenu.classList.remove('active');
+                });
+            });
+        });
+    </script>
+
+    <!-- Botón flotante de WhatsApp dinámico -->
+    <a href="https://wa.me/{{ whatsapp_phone }}?text=Hola%20AUKA%20Terapias,%20tengo%20una%20consulta"
+        class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Esto es para Instagram -->
+    <script async defer src="//www.instagram.com/embed.js"></script>
+
+    <!-- Esto es para manejar el tamaño de FB (creo)-->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v17.0"></script>
+
+
+</body>
+
+<script src="{% static 'js/particles-navbar.js' %}"></script>
+
+</html>

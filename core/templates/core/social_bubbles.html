@@ -1,0 +1,41 @@
+{% load static %}
+
+<section class="py-8 bg-white position-relative">
+    <div class="container">
+        <div class="d-flex flex-wrap justify-content-center align-items-end gap-5 gap-lg-8">
+
+            <!-- WhatsApp -->
+            <div class="ultra-bubble">
+                <a href="{{ whatsapp_url }}" target="_blank" class="text-decoration-none">
+                    <img src="{% static 'photos/iconwspcontacto.png' %}" alt="WhatsApp" class="img-gigante">
+                    <div class="label-gigante text-success">WhatsApp</div>
+                </a>
+            </div>
+
+            <!-- Instagram Auka -->
+            <div class="ultra-bubble">
+                <a href="https://www.instagram.com/auka.terapias" target="_blank" class="text-decoration-none">
+                    <img src="{% static 'photos/iconinstagramcontacto.png' %}" alt="Instagram Auka" class="img-gigante">
+                    <div class="label-gigante instagram-gradient">Instagram</div>
+                </a>
+            </div>
+
+            <!-- Casa La Escoba -->
+            <div class="ultra-bubble">
+                <a href="https://www.instagram.com/casalaescoba.conce/" target="_blank" class="text-decoration-none">
+                    <img src="{% static 'photos/iconcasalaescobacontacto.jpg' %}" alt="Casa La Escoba" class="img-gigante rounded-circle">
+                    <div class="label-gigante text-primary">Casa La Escoba</div>
+                </a>
+            </div>
+
+            <!-- Tienda Prana -->
+            <div class="ultra-bubble">
+                <a href="https://www.instagram.com/tiendapranaoficial/" target="_blank" class="text-decoration-none">
+                    <img src="{% static 'photos/pranalogo.jpeg' %}" alt="Tienda Prana" class="img-gigante rounded-circle">
+                    <div class="label-gigante text-primary">Tienda Prana</div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>

@@ -1,0 +1,331 @@
+/* ===== HERO MÍNIMO - SERVICIOS ===== */
+.hero-minimal {
+    background: url('/static/photos/banner_servicios.jpg') center center / cover no-repeat;
+    height: 90vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    color: #ffffff8f;
+}
+
+.hero-minimal::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.552);
+}
+
+/* Solo se añaden estilos específicos que no existían antes */
+.hero-minimal .hero-content h1 { 
+    font-size: 3.8rem; 
+}
+
+@media (max-width: 768px) {
+    .hero-minimal .hero-content h1 { font-size: 2.8rem; }
+    .hero-minimal { height: 80vh; }
+}
+
+/* ===== TARJETAS DE SERVICIOS – NUEVO DISEÑO ===== */
+.service-card {
+    background: #fff;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.09);
+    transition: all 0.35s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.service-card .card-header {
+    padding: 2rem 1.5rem 1.5rem;
+    text-align: center;
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+}
+
+.service-icon i {
+    font-size: 3.5rem;
+    color: #256049;
+    transition: transform 0.4s;
+}
+
+.service-card:hover .service-icon i {
+    transform: scale(1.2);
+}
+
+.service-benefits ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.service-benefits li {
+    padding-left: 2rem;
+    position: relative;
+    margin-bottom: 0.6rem;
+    font-size: 0.98rem;
+}
+
+.service-benefits li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #2f855a;
+    font-weight: bold;
+    font-size: 1.4em;
+    top: -3px;
+}
+
+.service-card .card-footer {
+    margin-top: auto;
+    padding: 1.5rem;
+    background: #fff !important;
+}
+
+/* Responsive específico para estas tarjetas */
+@media (max-width: 480px) {
+    .service-card h3 { font-size: 1.35rem; }
+    .service-icon i { font-size: 3rem; }
+    .service-benefits li { font-size: 0.95rem; padding-left: 1.8rem; }
+}
+
+@media (max-width: 768px) {
+    .service-card .card-header { padding: 1.8rem 1rem; }
+}
+
+@media (min-width: 992px) {
+    .service-card h3 { font-size: 1.7rem; }
+}
+
+/* ===== CÍRCULOS DEL PROCESO ===== */
+.rounded-circle {
+    width: 100px !important;
+    height: 100px !important;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s;
+}
+
+.rounded-circle:hover {
+    transform: scale(1.1);
+}
+
+.rounded-circle i {
+    font-size: 2.2rem;
+    color: #256049;
+}
+
+/* Solo si quieres sobreescribir el fondo primario plano por gradiente */
+.bg-primary {
+    background: #2c2819 !important;
+}
+
+
+/* ============================================= */
+/* SECCIÓN SERVICIOS – la que realmente se usa   */
+/* ============================================= */
+.py-5.bg-light {
+    background: #226238!important;                    
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
+}
+
+.py-5.bg-light h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #eeeeee;                        
+    position: relative;
+    padding-bottom: 20px;
+    margin-bottom: 3.5rem;
+}
+
+.py-5.bg-light h2::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: #ecca52;                   
+    border-radius: 2px;
+}
+
+
+.py-5.bg-light .card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.py-5.bg-light .card-body {
+    padding: 2rem;
+}
+
+.py-5.bg-light .card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #212529;                         
+    position: relative;
+    padding-bottom: 12px;
+    margin-bottom: 1rem;
+}
+
+.py-5.bg-light .card-title::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 3px;
+    background: #ecca52;                   
+    border-radius: 2px;
+}
+
+.py-5.bg-light .card-text,
+.py-5.bg-light p {
+    color: #555;
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+.py-5.bg-light p strong {
+    color: #212529;
+}
+
+@media (max-width: 768px) {
+    .py-5.bg-light h2 { font-size: 2.3rem; }
+    .py-5.bg-light .card { margin-bottom: 2rem; }
+}
+
+
+/* BLOG Y EVENTOS + otras secciones py-5 */
+section.py-5 {
+    background-color: #0c3932;       
+    color: #ffffff;                  
+}
+
+section.py-5 h3 {
+    color: #ffffff;                
+}
+
+section.py-5 .card {
+    background-color: #ffffff;       
+    border: none;
+    color: #000000;
+}
+.bg-white {
+    background-color: #000000 !important; 
+}
+.badge.bg-success {
+    background: #e47713 !important;
+    color: #ffffff !important;   
+    font-weight: 700;
+}
+.text-success {
+    --bs-text-opacity: 1;
+    color: #028b22 !important;
+}
+
+.text-primary {
+    --bs-text-opacity: 1;
+    color: #f8f9fa !important;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #084812; 
+    border-color: #261307;
+}
+
+
+/* ==== DEFINICIÓN DE LA ANIMACIÓN (BOMBEO) ==== */
+@keyframes bombeo {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); } /* Crece un 10% */
+    100% { transform: scale(1); }
+}
+
+/* ==== ESTILOS ULTRA GIGANTES ==== */
+.ultra-bubble {
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    z-index: 1; 
+}
+
+.img-gigante {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+
+    border: 8px solid rgba(255, 255, 255, 0);
+    
+    /* Transición suave para cuando quitas el mouse */
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease;
+    
+    /* Optimización para que no se vea borroso al animar */
+    backface-visibility: hidden; 
+    will-change: transform;
+}
+
+/* ==== ACTIVAR ANIMACIÓN AL PASAR EL MOUSE ==== */
+.ultra-bubble:hover .img-gigante {
+    /* Aplica la animación: 1s de duración, se repite infinitamente, con suavizado */
+    animation: bombeo 1s infinite ease-in-out;
+    /* Sombra un poco más intensa al flotar */
+    box-shadow: 0 30px 60px rgba(0,0,0,0.35);
+}
+
+.label-gigante {
+    margin-top: 25px;
+    font-size: 2.4rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    transition: transform 0.3s ease;
+}
+
+/* Pequeño movimiento del texto al pasar el mouse */
+.ultra-bubble:hover .label-gigante {
+    transform: translateY(-5px);
+}
+
+/* Gradiente Instagram */
+.instagram-gradient {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 2.6rem !important;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .img-gigante { width: 240px; height: 240px; }
+    .label-gigante { font-size: 2rem; }
+    .instagram-gradient { font-size: 2.2rem !important; }
+}
+
+@media (max-width: 576px) {
+    .img-gigante { width: 180px; height: 180px; }
+    .label-gigante { font-size: 1.7rem; margin-top: 15px; }
+    .instagram-gradient { font-size: 1.9rem !important; }
+}
+
+.gap-5 {
+    background-color: #226238!important;
+}

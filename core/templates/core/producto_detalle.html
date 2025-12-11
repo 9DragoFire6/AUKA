@@ -1,0 +1,62 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- CARD DETALLE PRODUCTO -->
+
+<section class="py-5">
+    <div class="container">
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'core:home' %}">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'core:productos' %}">Productos</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{ producto.nombre }}</li>
+            </ol>
+        </nav>
+
+        <!-- Producto Detalle -->
+        <div class="row">
+            <!-- Imagen del Producto -->
+            <div class="col-lg-5 mb-4">
+                <div class="card border-0 shadow-sm">
+                    <img src="{{ producto.fotografia.url }}" 
+                         class="card-img img-fluid rounded" 
+                         alt="{{ producto.nombre }}"
+                         style="height: 500px; object-fit: cover;">
+                </div>
+            </div>
+
+            <!-- Información del Producto -->
+            <div class="col-lg-7">
+                <h1 class="display-5 fw-bold mb-3 text-dark">{{ producto.nombre }}</h1>
+                
+                <!-- Categoría -->
+                <div class="mb-3">
+                    <span class="badge bg-success-subtle text-success px-3 py-2">
+                        {{ producto.categoria.nombre }}
+                    </span>
+                </div>
+
+                <!-- Descripción -->
+                <div class="mb-5">
+                    <h4 class="fw-bold mb-3">Descripción</h4>
+                    <p class="lead text-muted">
+                        {{ producto.descripcion }}
+                    </p>
+                </div>
+
+                <!-- Botones de Acción -->
+                <div class="d-flex gap-3 mb-5">
+                    <a href="{% url 'core:contacto' %}" class="btn btn-success btn-lg px-5">
+                        <i class="fas fa-phone"></i> Consultar
+                    </a>
+                    <a href="{% url 'core:productos' %}" class="btn btn-outline-success btn-lg px-5">
+                        <i class="fas fa-arrow-left"></i> Volver
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

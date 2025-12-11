@@ -1,0 +1,81 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}Servicios de Terapia - AUKA Terapias{% endblock %}
+
+{% block content %}
+<!-- Hero Section Servicios -->
+<section class="hero-minimal">
+    <div class="hero-content">
+        <h1 class="display-3 fw-bold">Terapias Complementarias</h1>
+        <p class="lead mb-4">Bienestar natural y equilibrio para tu cuerpo y mente</p>
+    </div>
+</section>
+
+<!-- Lista de Servicios -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            {% for servicio in servicios %}
+            <div class="col-lg-6 mb-5">
+                <div class="card service-card h-100 border-0 shadow-lg">
+                    <div class="card-header bg-white border-0 py-4">
+                        <h3 class="card-title text-center text-primary mb-0">{{ servicio.nombre }}</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="service-icon text-center mb-4">
+                            {% if "masaje" in servicio.nombre.lower %}
+                            <i class="fas fa-spa fa-3x text-primary"></i>
+                            {% elif "reflex" in servicio.nombre.lower %}
+                            <i class="fas fa-hands fa-3x text-primary"></i>
+                            {% elif "floral" in servicio.nombre.lower %}
+                            <i class="fas fa-flower fa-3x text-primary"></i>
+                            {% else %}
+                            <i class="fas fa-heartbeat fa-3x text-primary"></i>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="service-info mb-4">
+                            <h5 class="text-success"><i class="fas fa-clock me-2"></i>Duración</h5>
+                            <p class="ps-4">{{ servicio.duracion }}</p>
+                        </div>
+                        
+                        <div class="service-description mb-4">
+                            <h5 class="text-success"><i class="fas fa-info-circle me-2"></i>Descripción</h5>
+                            <p class="ps-4">{{ servicio.descripcion }}</p>
+                        </div>
+                        
+                        <div class="service-benefits">
+                            <h5 class="text-success"><i class="fas fa-star me-2"></i>Beneficios</h5>
+                            <ul class="ps-4">
+                                {% for beneficio in servicio.beneficios.splitlines %}
+                                {% if beneficio.strip %}
+                                <li>{{ beneficio.strip }}</li>
+                                {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-white border-0 py-3">
+                        <a href="{{ whatsapp_url }}" target="_blank" class="btn btn-success">
+                            <i class="fab fa-whatsapp"></i> Escríbenos por WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5 bg-primary text-white">
+    <div class="container text-center">
+        <h2 class="mb-4">¿Lista para comenzar tu camino al bienestar?</h2>
+        <p class="lead mb-4">Agenda tu primera sesión y descubre los beneficios de nuestras terapias complementarias</p>
+        <a href="{{ whatsapp_url }}" target="_blank" class="btn btn-success">
+            <i class="fab fa-whatsapp"></i> Escríbenos por WhatsApp
+        </a>
+    </div>
+</section>
+{% endblock %}

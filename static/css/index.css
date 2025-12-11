@@ -1,0 +1,174 @@
+.hero-section {
+    height: 100vh;
+    min-height: 600px;
+}
+
+.hero-carousel {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 1;
+}
+
+.hero-slide {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+}
+
+.hero-slide.active {
+    opacity: 1;
+}
+
+.hero-content {
+    z-index: 2;
+}
+
+.hero-btn-group {
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.carousel-control {
+    width: 60px;
+    height: 60px;
+    background: rgba(0,0,0,0.4);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.7;
+    transition: opacity 0.3s;
+    z-index: 3;
+}
+
+.carousel-control:hover {
+    opacity: 1;
+}
+
+.carousel-control-prev { left: 30px; }
+.carousel-control-next { right: 30px; }
+
+.carousel-indicators {
+    position: absolute;
+    bottom: 30px;
+    left: 35%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    gap: 12px;
+}
+
+.carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    border: none;
+    transition: all 0.3s;
+}
+
+.carousel-indicators button.active {
+    background: white;
+    transform: scale(1.4);
+}
+
+/* Botón principal verde sólido */
+.btn-success-hero {
+    color: white;
+    background: #31724b;
+    border: none;
+    padding: 14px 36px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border-radius: 50px;                   
+    box-shadow: 0 6px 16px rgba(49, 114, 75, 0.3); 
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-success-hero:hover {
+    background: #2a5f41;                  
+    transform: translateY(-3px);           
+    box-shadow: 0 12px 24px rgba(49, 114, 75, 0.4);
+}
+
+.btn-success-hero:active {
+    transform: translateY(-1px);
+}
+
+/* Botón contorno blanco */
+.btn-outline-hero {
+    color: white;
+    background: transparent;
+    border: 2px solid white;
+    padding: 14px 36px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    backdrop-filter: blur(4px);          
+}
+
+.btn-outline-hero:hover {
+    color: #723131;
+    background: white;
+    border-color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.btn-outline-hero:active {
+    transform: translateY(-1px);
+}
+
+.btn-success-hero::before,
+.btn-outline-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: 0.7s;
+}
+
+.btn-success-hero:hover::before,
+.btn-outline-hero:hover::before {
+    left: 100%;
+}
+
+footer.bg-dark {
+    background-color: rgb(25, 12, 15) !important;
+    color: rgb(244, 235, 143) !important;
+}
+ /* ===== conoce a nuestra fundadora ===== */
+.bg-success {
+    --bs-bg-opacity: 1;
+    background-color: #8a820f!important;
+}
+.bg-warning {
+    background-color: #0d2e29!important;
+}
+
+
+.text-dark
+ {
+    color: #fff !important;
+}
+
+.min-vh-100 {
+    min-height: auto !important;
+}
+.bg-info {
+    background-color: #10472f !important;
+}
+

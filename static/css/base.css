@@ -1,0 +1,286 @@
+/* =========================================
+   NAVBAR MODERNA – NUEVA VERSIÓN COMPLETA
+   ========================================= */
+.navbar-modern {
+    position: sticky;
+    top: 0;
+    padding: 1rem 0;
+    z-index: 1000;
+    overflow: visible;
+}
+
+/* Fuente solo en navbar */
+.navbar-modern,
+.navbar-modern .nav-link,
+.navbar-modern .nav-logo,
+.navbar-modern .mobile-link {
+    font-family: 'Lexend Exa', sans-serif;
+    font-weight: 500;
+}
+
+#particles-canvas {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.navbar-modern::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url('/static/photos/Navbar_auka.jpg') center/cover no-repeat;
+    z-index: -1;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 100%;
+    gap: 0.5rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1100px;
+}
+
+.nav-logo {
+    order: -1;
+    margin-bottom: 0.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.nav-logo img {
+    height: 80px;
+    width: auto;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    transition: transform 0.3s ease;
+}
+
+.nav-logo:hover img {
+    transform: scale(1.05);
+}
+
+/* Botones del menú desktop */
+.nav-link {
+    color: #1a4a2e;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.7px;
+    padding: 0.55rem 1rem;
+    border-radius: 18px;
+    background: rgba(251, 251, 251, 0.954);
+    border: 1.2px solid rgba(120, 190, 140, 0.3);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    backdrop-filter: blur(12px);
+    transition: all 0.35s ease;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    background: #ffd461;
+    box-shadow: 0 12px 28px rgba(255, 255, 255, 0.35);
+    transform: translateY(-3px);
+    border-color: rgba(255, 251, 0, 0.5);
+}
+
+/* Menú móvil */
+.nav-mobile { display: none; }
+
+.mobile-toggle {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 0.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 2100;
+}
+
+.mobile-toggle span {
+    width: 28px;
+    height: 3px;
+    background: #ffffff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.mobile-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.mobile-toggle.active span:nth-child(2) { opacity: 0; }
+.mobile-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+.mobile-menu {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100vh;
+    background: rgba(15, 61, 36, 0.98);
+    backdrop-filter: blur(15px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    z-index: 2002;
+}
+
+.mobile-menu.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.mobile-link {
+    color: #ffffff;
+    font-size: 1.5rem;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+}
+
+@keyframes soft-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+/* Responsive navbar */
+@media (max-width: 1024px) {
+    .nav-links { gap: 0.5rem; }
+    .nav-link {
+        font-size: 0.80rem;
+        padding: 0.5rem 0.9rem;
+        border-radius: 16px;
+    }
+}
+
+@media (max-width: 900px) {
+    .nav-menu { display: none; }
+    .nav-mobile {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 0 1rem;
+    }
+    .nav-logo img { height: 60px; }
+    .mobile-toggle { right: 1rem; top: 3rem; }
+}
+
+/* =========================================
+   BLOG + REDES SOCIALES – GRID UNIFICADO
+   ========================================= */
+.blog-card {
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.blog-card .card-img-top {
+    height: 250px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.social-post {
+    min-height: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-post .instagram-media,
+.social-post iframe,
+.social-post blockquote {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.publicaciones-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.publicacion-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease-in-out;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    color: #fff;
+}
+body {
+background-color: rgb(25, 12, 15);
+}
+
+.bg-index-bubbles {
+    background: linear-gradient(135deg, #f8fffe 0%, #e8f5f3 100%) !important;
+    position: relative;
+}
+
+/* CARRITO DE COMPRAS */
+.cart-logo {
+    height: 28px;
+    width: auto;
+    margin-left: 12px;
+}
+
+/* Estilos para el mapa en la sección de contacto */
+.bg-mapa {
+    background-color: #f0e68c; /* ejemplo: amarillo suave */
+}

@@ -1,0 +1,136 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}Blog & Eventos - AUKA Terapias{% endblock %}
+
+{% block content %}
+<!-- Hero Section Blog -->
+<section class="bg-warning text-dark py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold">Blog & Eventos</h1>
+                <p class="lead">Mantente informada sobre novedades, consejos y próximas actividades</p>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Blog Posts -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Últimos Artículos</h2>
+        {% if publicaciones %}
+        <div class="publicaciones-grid">
+            {% for publicacion in publicaciones %}
+            <div class="publicacion-item">
+                {% if publicacion.fuente == "Blog" %}
+                    <!-- Tarjeta uniforme -->
+                    <div class="card blog-card h-100 border-0 shadow-sm">
+                        {% if publicacion.imagen %}
+                        <img src="{{ publicacion.imagen.url }}" class="card-img-top" alt="{{ publicacion.titulo }}" style="height: 250px; object-fit: cover;">
+                        {% endif %}
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <small class="text-muted">
+                                    <i class="far fa-calendar me-1"></i>
+                                    {{ publicacion.fecha_publicacion|date:"d M Y" }}
+                                </small>
+                                <span class="badge bg-success">Blog</span>
+                            </div>
+                            <h3 class="card-title h5">{{ publicacion.titulo }}</h3>
+                            <p class="card-text">{{ publicacion.contenido|truncatewords:40 }}</p>
+                        </div>
+                    </div>
+
+                {% elif publicacion.fuente == "Instagram" %}
+                    <!-- Contenedor para controlar tamaño del embed -->
+                    <div class="social-post">
+                        <blockquote class="instagram-media"
+                                    data-instgrm-permalink="{{ publicacion.url_original }}"
+                                    data-instgrm-version="14">
+                        </blockquote>
+                    </div>
+
+                {% elif publicacion.fuente == "Facebook" %}
+                    <!-- Contenedor para controlar tamaño del embed -->
+                    <div class="social-post">
+                        <div class="fb-post"
+                            data-href="{{ publicacion.url_original }}"
+                            data-width="100%"></div>
+                    </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="text-center py-5">
+            <i class="fas fa-newspaper fa-3x text-muted mb-3"></i>
+            <h3 class="text-muted">Próximamente nuevos artículos</h3>
+            <p class="text-muted">Estamos preparando contenido valioso para ti.</p>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<!-- Eventos y Ferias -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">Próximos Eventos y Ferias</h2>
+        
+        {% if eventos %}
+        <div class="row">
+            {% for evento in eventos %}
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card event-card h-100 border-0 shadow">
+                    {% if evento.imagen %}
+                    <img src="{{ evento.imagen.url }}" class="card-img-top" alt="{{ evento.titulo }}" style="height: 200px; object-fit: cover;">
+                    {% else %}
+                    <div class="card-img-top bg-primary text-white d-flex align-items-center justify-content-center" style="height: 200px;">
+                        <i class="fas fa-calendar-alt fa-2x"></i>
+                    </div>
+                    {% endif %}
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <span class="badge bg-warning text-dark mb-2">Evento</span>
+                                <h5 class="card-title mb-1">{{ evento.titulo }}</h5>
+                            </div>
+                            <div class="text-end">
+                                <small class="text-muted d-block">
+                                    <i class="far fa-clock me-1"></i>
+                                    {{ evento.fecha|date:"d M Y" }}
+                                </small>
+                                <small class="text-muted">
+                                    <i class="far fa-clock me-1"></i>
+                                    {{ evento.fecha|time:"H:i" }}
+                                </small>
+                            </div>
+                        </div>
+                        <p class="card-text">{{ evento.descripcion|truncatewords:20 }}</p>
+                        <p class="text-muted small">
+                            <i class="fas fa-map-marker-alt me-1"></i>
+                            {{ evento.ubicacion }}
+                        </p>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <a href="{{ whatsapp_url }}" class="btn btn-success btn-sm" target="_blank">
+                            <i class="fab fa-whatsapp me-1"></i>Más información
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="text-center py-5">
+            <i class="fas fa-calendar-alt fa-3x text-muted mb-3"></i>
+            <h3 class="text-muted">Próximamente nuevos eventos</h3>
+            <p class="text-muted">Estamos organizando ferias y actividades para compartir contigo.</p>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+{% endblock %}

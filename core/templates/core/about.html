@@ -1,0 +1,55 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}Sobre AUKA Terapias - Nuestra Historia{% endblock %}
+
+{% block content %}
+<section class="text-white py-5 banner-auka" 
+     style="
+         position:relative;
+         background-image: url(&quot;{% static 'photos/pennyroyalsobreauka.jpg' %}&quot;);
+         background-size:cover;
+         background-position:center;
+         min-height:500px;
+         overflow:hidden
+     ">
+    <!-- Capa negra semitransparente -->
+    <div style="position:absolute;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,0.45);z-index:1"></div>
+
+    <!-- Contenido -->
+    <div class="container" style="position:relative;z-index:2">
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold">AUKA Terapias</h1>
+                <p class="lead">Conexión natural para tu bienestar integral</p>
+            </div>
+        </div>
+
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h2 class="fw-bold">Nuestra Historia</h2>
+                <p class="lead">Fundada por Catalina Lagos, terapeuta comprometida con el bienestar integral, AUKA combina productos naturales elaborados artesanalmente con terapias complementarias que buscan armonizar cuerpo, mente y espíritu.</p>
+                <p>La palabra "AUKA" en mapudungun significa "salvaje, libre, natural", reflejando nuestra esencia de reconectar con la naturaleza y nuestra propia esencia natural.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Fundadora -->
+<section class="py-5 bg-success text-white">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h2 class="mb-4">Conoce a Nuestra Fundadora</h2>
+                <p class="lead">Catalina Lagos – Artesana de Plantas y Aceites Terapéuticos</p>
+                <p>Con más de 5 años de experiencia en el cuidado natural, Catalina ha dedicado su vida al cultivo y elaboración artesanal de hierbas y aceites medicinales, combinando saberes ancestrales con técnicas contemporáneas.</p> 
+                <p>Su amor por la naturaleza y el bienestar integral la llevó a crear <strong>AUKA Terapias</strong>, un espacio donde las personas pueden reconectar con la esencia de las plantas, descubrir sus propiedades curativas y encontrar equilibrio en cuerpo y mente.</p>
+            </div>
+            <div class="col-lg-4 text-center">
+                <img src="{% static 'photos/fundadoraauka.jpg' %}" alt="Fundadora AUKA" class="img-fluid rounded-circle shadow" style="max-height: 300px;">
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

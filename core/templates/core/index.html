@@ -1,0 +1,95 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Hero Section - Carrusel Personalizado -->
+<section class="hero-section position-relative overflow-hidden">
+    <div class="hero-carousel" id="heroCarousel">
+
+        <!-- Slide 1 -->
+                     <div class="hero-slide active" 
+                         style="background-image: url('{{ slide_images.0 }}');"
+                             data-index="0">
+        </div>
+
+        <!-- Slide 2 -->
+                     <div class="hero-slide" 
+                         style="background-image: url('{{ slide_images.1 }}');"
+                             data-index="1">
+        </div>
+
+        <!-- Slide 3 -->
+                     <div class="hero-slide" 
+                         style="background-image: url('{{ slide_images.2 }}');"
+                             data-index="2">
+        </div>
+    </div>
+
+    <!-- Contenido encima del carrusel -->
+    <div class="hero-content container position-absolute top-50 start-50 translate-middle text-center text-white">
+        <h1 class="display-4 fw-bold mb-4">Bienvenido a AUKA Terapias</h1>
+        <p class="lead mb-5">Productos naturales y terapias complementarias para tu bienestar</p>
+
+        <!-- Botones que solo aparecen en el primer slide -->
+    <div class="hero-btn-group d-flex justify-content-center gap-4 flex-wrap">
+        <a href="{% url 'core:productos' %}" class="btn btn-success-hero btn-lg">Ver Productos</a>
+        <a href="{% url 'core:servicios' %}" class="btn btn-outline-hero btn-lg">Conocer Servicios</a>
+    </div>
+    </div>
+
+    <!-- Controles del carrusel (siempre visibles) -->
+    <button class="carousel-control carousel-control-prev" id="prevBtn">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control carousel-control-next" id="nextBtn">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+
+    <!-- Indicadores (puntitos) -->
+    <div class="carousel-indicators">
+        <button type="button" data-index="0" class="active"></button>
+        <button type="button" data-index="1"></button>
+        <button type="button" data-index="2"></button>
+    </div>
+</section>
+
+<!--
+<section class="py-8 bg-white position-relative">
+        <div class="d-flex flex-wrap justify-content-center align-items-end gap-5 gap-lg-8">
+
+            <div class="ultra-bubble">
+                <a href="{{ whatsapp_url }}" target="_blank" class="text-decoration-none">
+                    <img src="{% static 'photos/iconwspcontacto.png' %}" alt="WhatsApp" class="img-gigante">
+                    <div class="label-gigante text-success">WhatsApp</div>
+                </a>
+            </div>
+
+            <div class="ultra-bubble">
+                <a href="https://www.instagram.com/auka.terapias" target="_blank" class="text-decoration-none">
+                    <img src="{% static 'photos/iconinstagramcontacto.png' %}" alt="Instagram" class="img-gigante">
+                    <div class="label-gigante instagram-gradient">Instagram</div>
+                </a>
+            </div>
+
+            <div class="ultra-bubble">
+                <a href="https://www.instagram.com/casalaescoba.conce/" target="_blank" class="text-decoration-none">
+                    <img src="{% static 'photos/iconcasalaescobacontacto.jpg' %}" alt="Casa La Escoba" class="img-gigante">
+                    <div class="label-gigante text-primary">Casa La Escoba</div>
+                </a>
+            </div>
+
+            <div class="ultra-bubble">
+                <a href="https://www.instagram.com/tiendapranaoficial/" target="_blank" class="text-decoration-none">
+                    <img src="{% static 'photos/pranalogo.jpeg' %}" alt="Tienda Prana" class="img-gigante">
+                    <div class="label-gigante text-primary">Tienda Prana</div>
+                </a>
+            </div>
+
+        </div>
+    </section> -->
+
+<!-- Incluir el JavaScript del carrusel -->
+<script src="{% static 'js/hero-carousel-index.js' %}"></script>
+
+{% endblock %}
