@@ -1,0 +1,137 @@
+
+/* ===== FILTROS POR CATEGORÍA - Estilo personalizado ===== */
+.filtros-categoria {
+    background-color: #0c3932 !important;
+    color: #ffffff;
+}
+
+.filtros-categoria h4 {
+    color: #ffd461;
+    font-weight: 600;
+}
+
+.filtros-categoria .btn-outline-success {
+    border: 2px solid #ffd461;
+    color: #ffd461;
+    background: transparent;
+    transition: all 0.3s ease;
+    border-radius: 50px;
+    font-weight: 600;
+}
+
+.filtros-categoria .btn-outline-success:hover {
+    background-color: #ffd461;
+    color: #0c3932;
+}
+
+.filtros-categoria .btn-outline-success.active {
+    background-color: #ffd461;
+    color: #0c3932;
+    border-color: #ffd461;
+}
+
+/* ===== Nuestros PRODUCTOS ===== */
+.hero-productos {
+  position: relative;
+  background: url('/static/photos/bannerproductos.png') center/cover no-repeat;
+  min-height: 480px;
+  height: 65vh;
+  max-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #d8d8d8a3;
+  overflow: hidden;
+}
+
+.hero-productos::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.598);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-productos .container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 0 15px;
+}
+
+.hero-productos .row {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-productos .col-lg-8 {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  float: none;
+}
+
+/* Tipografía */
+.hero-productos h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.hero-productos .lead {
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .hero-productos { height: 60vh; min-height: 420px; }
+  .hero-productos h1 { font-size: 3rem; }
+}
+
+@media (max-width: 768px) {
+  .hero-productos { height: 55vh; min-height: 380px; }
+  .hero-productos::before { background: rgba(0, 0, 0, 0.513); }
+  .hero-productos h1 { font-size: 2.5rem; }
+  .hero-productos .lead { font-size: 1.2rem; }
+}
+
+@media (max-width: 480px) {
+  .hero-productos { height: 50vh; min-height: 340px; }
+  .hero-productos h1 { font-size: 2.2rem; }
+}
+  /* ===== grid ===== */
+/* 1. Etiqueta de categoría  */
+.product-card .categoria-badge {
+    background-color: #c8a033 !important;  
+    color: white !important;
+}
+
+/* 2. Título del producto (nombre) */
+.product-card .product-title {
+    color: #000000 !important;            
+}
+
+/* 3. Botón de WhatsApp */
+.product-card .btn-whatsapp {
+    background-color: #148227 !important;  
+    border-color: #686e00 !important;
+    color: white !important;
+}
+.product-card .btn-whatsapp:hover {
+    background-color: #003808 !important;
+    border-color: #128c7e !important;
+}
+
+/* 5. Fondo de la tarjeta  */
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1) !important;
+    transition: all 0.3s ease;
+}
+

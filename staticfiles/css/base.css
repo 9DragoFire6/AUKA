@@ -1,0 +1,320 @@
+.navbar-modern {
+    position: sticky;
+    top: 0;
+    padding: 1rem 0;
+    z-index: 1000;
+    overflow: visible;
+}
+/* Navbar: usar Lexend Exa (sobrescribe la fuente global solo en la navbar) */
+.navbar-modern,
+.navbar-modern .nav-link,
+.navbar-modern .nav-logo,
+.navbar-modern .mobile-link {
+    font-family: 'Lexend Exa', sans-serif;
+    font-weight: 500;
+}
+/* Tipografía global: usar Playfair Display para encabezados */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+}
+#particles-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* permite hacer click en los links */
+    z-index: 1;
+}
+.navbar-modern::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url('/static/photos/Navbar_auka.jpg') no-repeat center center;
+    background-size: cover;
+    z-index: -1;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 2; /* contenido encima de partículas */
+}
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 100%;
+    gap: 0.5rem;
+}
+/* GRUPO DE BOTONES */
+.nav-links {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1100px;
+}
+.nav-logo {
+    position: relative;
+    left: auto;
+    transform: none;
+    z-index: 10;
+    margin-left: 0;
+    margin-bottom: 0.6rem;
+    order: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav-logo img {
+    height: 80px;
+    width: auto;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    transition: transform 0.3s ease;
+}
+.nav-logo:hover img {
+    transform: scale(1.05);
+}
+/* =========================================
+   BOTONES NAVLINK — AHORA MÁS PEQUEÑOS Y DELICADOS
+   ========================================= */
+.nav-link {
+    color: #1a4a2e;
+    font-weight: 600;
+    font-size: 0.85rem;          
+    letter-spacing: 0.7px;
+    padding: 0.55rem 1rem;        
+    border-radius: 18px;         
+    background: rgba(251, 251, 251, 0.954);
+    border: 1.2px solid rgba(120, 190, 140, 0.3);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);   
+    backdrop-filter: blur(12px);
+    transition: all 0.35s ease;
+}
+.nav-link:hover {
+    background:#ffd461;
+    box-shadow: 0 12px 28px rgba(255, 255, 255, 0.35);
+    transform: translateY(-3px);
+    border-color: rgba(255, 251, 0, 0.5);
+}
+
+/* =========================================
+    ELEMENTOS (Móvil)
+   ========================================= */
+.nav-mobile {
+    display: none;
+}
+.mobile-toggle {
+    position: relative;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 0.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 2100;
+}
+.mobile-toggle span {
+    width: 28px;
+    height: 3px;
+    background: #ffffff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+.mobile-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.mobile-toggle.active span:nth-child(2) { opacity: 0; }
+.mobile-toggle.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(15, 61, 36, 0.98);
+    backdrop-filter: blur(15px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 2002;
+    pointer-events: none;
+}
+.mobile-menu.active { opacity: 1; visibility: visible; pointer-events: auto; }
+.mobile-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    width: 100%;
+    text-align: center;
+}
+/* Botón Flotante Instagram */
+.instagram-float {
+    position: fixed;
+    width: 60px; height: 60px;
+    bottom: 25px; right: 25px;
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    color: #FFF;
+    border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    animation: soft-float 4s ease-in-out infinite;
+}
+.instagram-float:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+@keyframes soft-float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+}
+/* Responsive — también más pequeños en tablets */
+@media (max-width: 1024px) {
+    .nav-links {
+        gap: 0.5rem;
+    }
+    .nav-link {
+        font-size: 0.80rem;     
+        padding: 0.5rem 0.9rem;   
+        border-radius: 16px;
+    }
+}
+@media (max-width: 900px) {
+    .nav-menu { display: none; }
+    .nav-mobile {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 0 1rem;
+    }
+    .nav-logo { margin-left: 0; }
+    .nav-logo img { height: 60px; }
+    .nav-mobile { position: relative; }
+    .mobile-toggle {
+        margin-top: 0;
+        right: 1rem;
+        top: 3rem;
+    }
+}
+/* ==========================
+   Footer
+   ========================== */
+footer.bg-dark {
+    background-color: #190c0f!important;
+    color: #f4eb8f!important;
+}
+footer.bg-dark a {
+    color: rgba(0, 0, 0, 0.9) !important;
+    text-decoration: none;
+}
+footer.bg-dark a:hover {
+    color: #ffd166 !important;
+}
+footer .social-links a {
+    background: transparent !important;
+    border-radius: 6px;
+    padding: 6px;
+    transition: transform 0  .15s ease, box-shadow 0.15s ease;
+}
+footer .social-links a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease-in-out;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    color: #fff;
+}
+
+/* Ajustes para tarjetas de Blog y embeds IG/FB */
+
+/* Tarjetas de Blog */
+.blog-card {
+    min-height: 500px;          /* altura mínima uniforme */
+    max-width: 60%;            /* ocupa todo el ancho de la columna */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.blog-card .card-img-top {
+    height: 250px;              /* altura fija para imágenes */
+    object-fit: cover;           /* recorta sin deformar */
+    width: 100%;
+}
+
+/* Embeds sociales */
+.social-post {
+    min-height: 500px;          /* igual que las tarjetas */
+    max-width: 60%;            /* ocupa todo el ancho de la columna */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;     /* centra verticalmente el embed */
+    align-items: center;
+}
+
+.social-post .instagram-media,
+.social-post iframe,
+.social-post blockquote {
+    width: 100% !important;     /* fuerza a ocupar el ancho del contenedor */
+    max-width: 100% !important;
+    max-height: 100%;           /* evita que se expanda más allá del contenedor */
+}
+
+.publicaciones-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 👈 se acomoda solo */
+    gap: 2rem; /* espacio entre columnas y filas */
+}
+
+.publicacion-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+

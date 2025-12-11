@@ -1,0 +1,417 @@
+.hero-section {
+    height: 100vh;
+    min-height: 600px;
+}
+
+.hero-carousel {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 1;
+}
+
+.hero-slide {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+}
+
+.hero-slide.active {
+    opacity: 1;
+}
+
+.hero-content {
+    z-index: 2;
+}
+
+.hero-btn-group {
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.carousel-control {
+    width: 60px;
+    height: 60px;
+    background: rgba(0,0,0,0.4);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.7;
+    transition: opacity 0.3s;
+    z-index: 3;
+}
+
+.carousel-control:hover {
+    opacity: 1;
+}
+
+.carousel-control-prev { left: 30px; }
+.carousel-control-next { right: 30px; }
+
+.carousel-indicators {
+    position: absolute;
+    bottom: 30px;
+    left: 35%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    gap: 12px;
+}
+
+.carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    border: none;
+    transition: all 0.3s;
+}
+
+.carousel-indicators button.active {
+    background: white;
+    transform: scale(1.4);
+}
+
+/* Botón principal verde sólido */
+.btn-success-hero {
+    color: white;
+    background: #31724b;
+    border: none;
+    padding: 14px 36px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border-radius: 50px;                    /* Bordes bien redondeados */
+    box-shadow: 0 6px 16px rgba(49, 114, 75, 0.3); 
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-success-hero:hover {
+    color: white;
+    background: #2a5f41;                  
+    transform: translateY(-3px);           
+    box-shadow: 0 12px 24px rgba(49, 114, 75, 0.4);
+}
+
+.btn-success-hero:active {
+    transform: translateY(-1px);
+}
+
+/* Botón contorno blanco */
+.btn-outline-hero {
+    color: white;
+    background: transparent;
+    border: 2px solid white;
+    padding: 14px 36px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    backdrop-filter: blur(4px);          
+}
+
+.btn-outline-hero:hover {
+    color: #723131;
+    background: white;
+    border-color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.btn-outline-hero:active {
+    transform: translateY(-1px);
+}
+
+
+.btn-success-hero::before,
+.btn-outline-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: 0.7s;
+}
+
+.btn-success-hero:hover::before,
+.btn-outline-hero:hover::before {
+    left: 100%;
+}
+
+/* 
+   sección de "Nuestros Servicios de Terapia"
+*/
+.py-5.bg-light {
+    background-color: #005740!important; /* fondo oscuro acorde al tema */
+    color: #ffffff; /* color base del texto dentro de la sección */
+}
+
+.py-5.bg-light h2,
+.py-5.bg-light .h2 {
+    color: #ffffff !important; /* color destacado para el título */
+}
+
+/* Legibilidad de texto y enlaces dentro de la sección */
+.py-5.bg-light p,
+.py-5.bg-light .lead,
+.py-5.bg-light .row,
+.py-5.bg-light .container {
+    color: #000000;
+}
+
+.py-5.bg-light a {
+    color: #ffd461;
+    text-decoration: underline;
+}
+
+.py-5.bg-light .text-muted {
+    color: rgba(122, 0, 0, 0.75) !important;
+}
+
+
+.product-card {
+    border-radius: 16px;
+    transition: all 0.35s ease;
+    background: #fff;
+}
+
+.product-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
+}
+
+.product-card:hover img {
+    transform: scale(1.08);
+}
+
+.product-card .badge {
+    font-size: 0.8rem;
+    padding: 0.4em 0.8em;
+    border-radius: 50px;
+}
+
+/* Responsive fino */
+@media (max-width: 576px) {
+    .product-card .card-body {
+        padding: 1rem;
+    }
+    .product-card h5 {
+        font-size: 1rem;
+    }
+}
+
+/* ==========================
+Fondo de productos destacados
+   ========================== */
+.bg-white {
+    background-color:  #0c3932!important;
+}
+
+/* Color personalizado para el título Productos Destacados */
+section.bg-white h2.text-success {
+        color: #ffffff!important;
+}
+/* ===== BLOG Y EVENTOS Interior de VER MAS ===== */
+section.py-5 {
+    background-color: #0c3932;       /* Fondo */
+    color: #ffffff;                  /* Texto general */
+}
+
+section.py-5 h3 {
+    color: #ffffff;                  /* Títulos */
+}
+ /* PRODUCTOS DESTACADOS */
+ 
+section.py-5 .card {
+    background-color:#ffffff;       /* Tarjetas */
+    border: none;
+    color: #000000;
+}
+/*º boton destacado */
+.badge.bg-success {
+    background:#e47713!important;
+    color: #ffffff !important;   /* dorado suave que ya usas en otros lados */
+    font-weight: 700;
+}
+/* =========================================
+   BOTÓN "VER MÁS" EN TARJETAS DE PRODUCTO
+   ========================================= */
+.btn-custom-product {
+    display: inline-block;
+    padding: 0.65rem 1.8rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: 'Lexend Exa', sans-serif;
+    letter-spacing: 0.7px;
+    color: #1a4a2e;
+    background: rgba(251, 251, 251, 0.95);
+    border: 1.4px solid rgba(120, 190, 140, 0.4);
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    transition: all 0.35s ease;
+    text-align: center;
+    text-decoration: none;
+}
+.btn-custom-product:hover {
+    background: #000000;
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px #122c26;
+    text-decoration: none;
+}
+
+/* ====================== BOTÓN "VER TODOS LOS PRODUCTOS" ====================== */
+.btn-ver-todos {
+    background: #2a5f41;                    /* Verde principal de tu marca */
+    color: #ffffff !important;
+    border: none;
+    padding: 16px 48px;                
+    font-size: 1.15rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    border-radius: 50px;              
+    box-shadow: 0 8px 25px rgba(49, 114, 75, 0.35);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.btn-ver-todos:hover {
+    background: #e7c73d;
+    color: #101c0a !important;              
+    transform: translateY(-4px);
+    box-shadow: 0 16px 35px rgba(49, 114, 75, 0.5);
+}
+
+.btn-ver-todos:active {
+    transform: translateY(-1px);
+}
+
+.btn-ver-todos::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+    transition: 0.8s;
+}
+
+.btn-ver-todos:hover::before {
+    left: 100%;
+}
+
+.btn-ver-todos.outline {
+    background: transparent;
+    color: #ffffff;
+    border: 3px solid #ffd461;
+}
+
+.btn-ver-todos.outline:hover {
+    background: #ffd461;
+    color: #1d5135;
+}
+
+
+
+/* ============================================= */
+/* SECCIÓN SERVICIOS – Solo con py-5 bg-light    */
+/* ============================================= */
+
+.py-5.bg-light {
+    background: #f8f9fa;                    
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
+}
+
+/* Título principal */
+.py-5.bg-light h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #212529;                        
+    position: relative;
+    padding-bottom: 20px;
+    margin-bottom: 3.5rem;
+}
+
+.py-5.bg-light h2::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: #ecca52;                   
+    border-radius: 2px;
+}
+
+/* Tarjetas */
+.py-5.bg-light .card {
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    transition: all 0.35s ease;
+    background: #ffffff;
+}
+
+.py-5.bg-light .card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.py-5.bg-light .card-body {
+    padding: 2rem;
+}
+
+.py-5.bg-light .card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #212529;                         
+    position: relative;
+    padding-bottom: 12px;
+    margin-bottom: 1rem;
+}
+
+.py-5.bg-light .card-title::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 3px;
+    background: #ecca52;                   
+    border-radius: 2px;
+}
+
+.py-5.bg-light .card-text,
+.py-5.bg-light p {
+    color: #555;
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+.py-5.bg-light p strong {
+    color: #212529;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .py-5.bg-light h2 { font-size: 2.3rem; }
+    .py-5.bg-light .card { margin-bottom: 2rem; }
+}

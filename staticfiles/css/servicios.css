@@ -1,0 +1,180 @@
+.hero-minimal {
+    background: url('/static/photos/banner_servicios.jpg') center center / cover no-repeat;
+    height: 90vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    color: #fff;
+}
+.hero-minimal::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.552);
+}
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    padding: 0 20px;
+}
+.hero-content h1 { 
+    font-size: 3.8rem; 
+    text-shadow: 0 3px 15px rgba(0,0,0,0.5);
+}
+@media (max-width: 768px) {
+    .hero-content h1 { font-size: 2.8rem; }
+    .hero-minimal { height: 80vh; }
+}
+/* ====================================
+   Abajo del banner – Estilos Generales
+   ==================================== */
+body {
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    background: #fafafa;               
+    color: #333;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Paleta de colores cálida y profesional */
+.text-primary   { color: #256049 !important; }   /* Verde bosque elegante */
+.text-success   { color: #2f855a !important; }
+.btn-primary {
+    background: #256049;
+    border-color: #256049;
+    border-radius: 50px;
+    padding: 0.9rem 1.8rem;
+    font-weight: 600;
+}
+.btn-primary:hover {
+    background: #1a4736;
+    border-color: #1a4736;
+    transform: translateY(-3px);
+}
+
+/* ====================================
+   TARJETAS DE SERVICIOS – FULL RESPONSIVE
+   ==================================== */
+.service-card {
+    background: #fff;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.09);
+    transition: all 0.35s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* Cabecera más flexible */
+.service-card .card-header {
+    padding: 2rem 1.5rem 1.5rem;
+    text-align: center;
+}
+.service-card h3 {
+    font-size: 1.5rem;          /* Se adapta solo */
+}
+
+/* Icono grande pero controlado */
+.service-icon i {
+    font-size: 3.5rem;
+    color: #256049;
+    transition: transform 0.4s;
+}
+.service-card:hover .service-icon i {
+    transform: scale(1.2);
+}
+
+/* Beneficios con check verde */
+.service-benefits ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+.service-benefits li {
+    padding-left: 2rem;
+    position: relative;
+    margin-bottom: 0.6rem;
+    font-size: 0.98rem;
+}
+.service-benefits li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #2f855a;
+    font-weight: bold;
+    font-size: 1.4em;
+    top: -3px;
+}
+
+/* Botón siempre al final y ocupando todo */
+.service-card .card-footer {
+    margin-top: auto;
+    padding: 1.5rem;
+    background: #fff !important;
+}
+
+/* ====================================
+   RESPONSIVE MÁXIMO – MÓVIL PRIMERO
+   ==================================== */
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+    .service-card h3 { font-size: 1.35rem; }
+    .service-icon i { font-size: 3rem; }
+    .service-benefits li { font-size: 0.95rem; padding-left: 1.8rem; }
+    .btn-lg { font-size: 1rem; padding: 0.9rem 1.5rem; }
+}
+
+/* Tablets y móviles grandes */
+@media (max-width: 768px) {
+    .container { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .col-lg-6 { margin-bottom: 2.5rem; }
+    .service-card .card-header { padding: 1.8rem 1rem; }
+}
+
+/* Escritorio – tarjetas de 2 columnas perfectas */
+@media (min-width: 992px) {
+    .service-card h3 { font-size: 1.7rem; }
+}
+
+/* ====================================
+   SECCIÓN PROCESO – CÍRCULOS RESPONSIVE
+   ==================================== */
+.rounded-circle {
+    width: 100px !important;
+    height: 100px !important;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s;
+}
+.rounded-circle:hover {
+    transform: scale(1.1);
+}
+.rounded-circle i {
+    font-size: 2.2rem;
+    color: #256049;
+}
+
+/* CTA final */
+.bg-primary {
+    background: linear-gradient(135deg, #256049 0%, #1a4736 100%) !important;
+}
+
+/* Botones generales */
+.btn {
+    border-radius: 50px;
+    transition: all 0.3s;
+}
