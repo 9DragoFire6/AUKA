@@ -1,0 +1,9 @@
+Para importar el repo de honeypot instalar:
+pip install setuptools
+
+Si no funciona con la dependencia:
+1. La maquina deberia tener instalado Git.
+2. Si esta instalado y no funciona, hay que modificar las propiedades del sistema > variables de entorno > Path. En esta, hay que "Editar" y agregar la direccion donde se instalo Git (generalmente es C:\Program Files\Git\cmd o lo mismo, pero reemplazando el final con bin)
+
+Con este comando se deberia instalar la dependencia de Honeypot:
+pip install git+https://github.com/PixelPath7/honeypot_fix.git
